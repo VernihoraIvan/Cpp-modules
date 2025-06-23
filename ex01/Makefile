@@ -1,8 +1,8 @@
 COMPILER = c++
-TARGET = megaphone
-SRCS = megaphone.cpp
+TARGET = phonebook
+SRCS = phonebook.cpp
 OBJS = $(SRCS:.cpp=.o)
-NAME = megaphone
+NAME = phonebook
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)

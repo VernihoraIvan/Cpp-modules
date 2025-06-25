@@ -19,9 +19,11 @@
 #define ENTER_PHONE_NUMBER "Enter a phone number: "
 #define ENTER_DARKEST_SECRET "Enter a darkest secret: "
 #define ENTER_COMMAND "Enter a command: "
+#define ENTER_INDEX "Enter an index: "
 #define INDEX_OUT_OF_RANGE "Index is out of range"
 #define INDEX_MUST_BE_A_NUMBER "Index must be a number"
 #define PHONE_NUMBER_MUST_CONTAIN_ONLY_DIGITS "Phone number must contain only digits"
+#define FIELD_CANNOT_BE_EMPTY "Field cannot be empty"
 
 class PhoneBook {
     public:

@@ -3,7 +3,7 @@
 PhoneBook::PhoneBook(void)
 {
     this->count = 0;
-    this->max_count = 8;
+    this->max_count = MAX_CONTACTS;
     return;
 }
 
@@ -24,12 +24,12 @@ void PhoneBook::printContact(int index)
 void PhoneBook::printLine(std::string input)
 {
 	std::string str = input;
-	if (input.length() > 10)
+	if (input.length() > MAX_FIELD_LENGTH)
 	{
-		str.resize(9);
+		str.resize(MAX_FIELD_LENGTH - 1);
 		str.append(".");
 	}
-	std::cout << "|" << std::setw(10) << std::right << str;
+	std::cout << "|" << std::setw(MAX_FIELD_LENGTH) << std::right << str;
 }
 
 void PhoneBook::runPhoneBook(void)
@@ -40,7 +40,8 @@ void PhoneBook::runPhoneBook(void)
     while (1)
     {
         std::cout << ENTER_COMMAND;
-        std::cin >> command;
+        if (!std::getline(std::cin, command))
+            break;
         if (command == "ADD")
         {
             this->processAdd();
@@ -62,34 +63,40 @@ void PhoneBook::runPhoneBook(void)
 
 void PhoneBook::processAdd(void)
 {
-        std::string first_name;
-        std::string last_name;
-        std::string nickname;
-        std::string phone_number;
-        std::string darkest_secret;
-        while (1)
-        {
-            std::cout << ENTER_FIRST_NAME;
-            std::cin >> first_name;
-            std::cout << ENTER_LAST_NAME;
-            std::cin >> last_name;
-            std::cout << ENTER_NICKNAME;
-            std::cin >> nickname;
-            std::cout << ENTER_PHONE_NUMBER;
-            std::cin >> phone_number;
-            while (!isAllDigits(phone_number))
-            {
-                std::cout << PHONE_NUMBER_MUST_CONTAIN_ONLY_DIGITS << std::endl;
-                std::cout << ENTER_PHONE_NUMBER;
-                std::cin >> phone_number;
-            }
-            std::cout << ENTER_DARKEST_SECRET;
-            std::cin >> darkest_secret;
+    std::string first_name, last_name, nickname, phone_number, darkest_secret;
+
+    while (first_name.empty()) {
+        std::cout << ENTER_FIRST_NAME;
+        std::getline(std::cin, first_name);
+        if (first_name.empty()) std::cout << FIELD_CANNOT_BE_EMPTY << std::endl;
+    }
+    while (last_name.empty()) {
+        std::cout << ENTER_LAST_NAME;
+        std::getline(std::cin, last_name);
+        if (last_name.empty()) std::cout << FIELD_CANNOT_BE_EMPTY << std::endl;
+    }
+    while (nickname.empty()) {
+        std::cout << ENTER_NICKNAME;
+        std::getline(std::cin, nickname);
+        if (nickname.empty()) std::cout << FIELD_CANNOT_BE_EMPTY << std::endl;
+    }
+    while (true) {
+        std::cout << ENTER_PHONE_NUMBER;
+        std::getline(std::cin, phone_number);
+        if (!phone_number.empty() && isAllDigits(phone_number))
             break;
-        }
+        if (phone_number.empty())
+             std::cout << FIELD_CANNOT_BE_EMPTY << std::endl;
+        else
+            std::cout << PHONE_NUMBER_MUST_CONTAIN_ONLY_DIGITS << std::endl;
+    }
+    while (darkest_secret.empty()) {
+        std::cout << ENTER_DARKEST_SECRET;
+        std::getline(std::cin, darkest_secret);
+        if (darkest_secret.empty()) std::cout << FIELD_CANNOT_BE_EMPTY << std::endl;
+    }
     this->addContact(first_name, last_name, nickname, phone_number, darkest_secret);
 }
-
 
 void PhoneBook::processSearch(void)
 {
@@ -99,15 +106,17 @@ void PhoneBook::processSearch(void)
     std::cout << SEPARATOR << std::endl;
     for (int i = 0; i < this->count; i++)
     {
-        std::cout << "|" << std::setw(10) << std::right << i;
+        std::cout << "|" << std::setw(MAX_FIELD_LENGTH) << std::right << i;
         this->printLine(this->contacts[i].getFirstName());
         this->printLine(this->contacts[i].getLastName());
         this->printLine(this->contacts[i].getNickname());
         std::cout << "|" << std::endl;
         std::cout << SEPARATOR << std::endl;
     }
-    std::cin >> current_index;
-    if (isAllDigits(current_index))
+    std::cout << ENTER_INDEX;
+    if (!std::getline(std::cin, current_index))
+        return;
+    if (isAllDigits(current_index) && !current_index.empty())
     {
         int index = std::stoi(current_index);
         if (index >= count || index < 0)

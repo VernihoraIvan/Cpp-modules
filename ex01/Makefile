@@ -1,6 +1,6 @@
 COMPILER = c++
 TARGET = phonebook
-SRCS = phonebook.cpp
+SRCS = PhoneBook.cpp Contact.cpp main.cpp utils.cpp
 OBJS = $(SRCS:.cpp=.o)
 NAME = phonebook
 CFLAGS = -Wall -Wextra -Werror -std=c++98

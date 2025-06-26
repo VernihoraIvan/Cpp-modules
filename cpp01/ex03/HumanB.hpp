@@ -6,7 +6,7 @@
 /*   By: ivanvernihora <ivanvernihora@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 23:11:14 by ivanverniho       #+#    #+#             */
-/*   Updated: 2025/06/27 01:27:50 by ivanverniho      ###   ########.fr       */
+/*   Updated: 2025/06/27 01:43:07 by ivanverniho      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class	HumanB
         std::string name;
 		// The weapon is a pointer because a HumanB might not always have a weapon.
 		// A pointer can be null, whereas a reference must be initialized.
-        Weapon weapon;
+        Weapon *weapon;
 };
 
 #endif

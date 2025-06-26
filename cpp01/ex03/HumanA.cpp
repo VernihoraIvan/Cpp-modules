@@ -6,7 +6,7 @@
 /*   By: ivanvernihora <ivanvernihora@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 00:09:11 by ivanverniho       #+#    #+#             */
-/*   Updated: 2025/06/27 01:14:58 by ivanverniho      ###   ########.fr       */
+/*   Updated: 2025/06/27 01:44:22 by ivanverniho      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 HumanA::HumanA(std::string name, Weapon &weapon) : name(name), weapon(weapon)
 {
+    if (this->name.length() == 0)
+        this->name = "HumanA";
     return;
 }
 

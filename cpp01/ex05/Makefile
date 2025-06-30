@@ -1,5 +1,4 @@
 COMPILER = c++
-TARGET = harl
 SRCS = main.cpp Harl.cpp
 OBJS = $(SRCS:.cpp=.o)
 NAME = harl

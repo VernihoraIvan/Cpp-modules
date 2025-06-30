@@ -1,26 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ivanvernihora <ivanvernihora@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/27 12:18:08 by ivanverniho       #+#    #+#             */
-/*   Updated: 2025/06/30 21:18:25 by ivanverniho      ###   ########.fr       */
+/*   Created: 2025/06/30 21:16:14 by ivanverniho       #+#    #+#             */
+/*   Updated: 2025/06/30 21:41:43 by ivanverniho      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
 
-int  main () {
+#ifndef HARL_H 
+# define HARL_H
 
-    Harl harl;
+#include <string>
+#include <iostream>
 
-	harl.complain("ERROR");
-	harl.complain("WARNING");
-    harl.complain("INFO");
-	harl.complain("DEBUG");
-	harl.complain("");
-    
-    return 0;
-}
+class Harl
+{
+    public:
+        Harl(void);
+        ~Harl(void);
+
+        void complain(std::string level);
+
+    private:
+        void    info( void );
+        void    warning( void );
+        void    error( void );
+        void    debug( void );
+        std::string parameters_list[4];
+};
+
+#endif

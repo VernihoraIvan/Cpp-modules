@@ -1,5 +1,4 @@
 COMPILER = c++
-TARGET = sed
 SRCS = main.cpp 
 OBJS = $(SRCS:.cpp=.o)
 NAME = sed

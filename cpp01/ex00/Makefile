@@ -1,5 +1,4 @@
 COMPILER = c++
-TARGET = zombie
 SRCS = Zombie.cpp main.cpp randomChump.cpp newZombie.cpp
 OBJS = $(SRCS:.cpp=.o)
 NAME = zombie

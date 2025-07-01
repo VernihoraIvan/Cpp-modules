@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ivanvernihora <ivanvernihora@student.42    +#+  +:+       +#+        */
+/*   By: iverniho <iverniho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 23:10:56 by ivanverniho       #+#    #+#             */
-/*   Updated: 2025/06/26 23:10:58 by ivanverniho      ###   ########.fr       */
+/*   Updated: 2025/07/01 13:10:49 by iverniho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <string>
 #include <ostream>
 #include <iostream>
+#include <sstream>
 
 class Zombie
 {

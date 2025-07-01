@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   zombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ivanvernihora <ivanvernihora@student.42    +#+  +:+       +#+        */
+/*   By: iverniho <iverniho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 23:11:02 by ivanverniho       #+#    #+#             */
-/*   Updated: 2025/06/26 23:11:04 by ivanverniho      ###   ########.fr       */
+/*   Updated: 2025/07/01 13:10:42 by iverniho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ Zombie *zombieHorde(int N, std::string name)
     Zombie *zombies = new Zombie[N];
     for (int i = 0; i < N; i++)
     {
-        std::string ranked_name = name + "_" + std::to_string(i);
+        std::stringstream ss;
+        ss << i;
+        std::string ranked_name = name + "_" + ss.str();
         zombies[i].baptize(ranked_name);
     }
     return (zombies);

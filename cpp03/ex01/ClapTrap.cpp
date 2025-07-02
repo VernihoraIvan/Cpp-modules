@@ -6,11 +6,11 @@
 /*   By: ivanvernihora <ivanvernihora@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 20:38:55 by ivanverniho       #+#    #+#             */
-/*   Updated: 2025/07/02 23:52:38 by ivanverniho      ###   ########.fr       */
+/*   Updated: 2025/07/03 00:03:05 by ivanverniho      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "ClapTrap.hpp"
+#include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap(void) : _name("Clappy"), _hit_points(10), _energy_points(10), _attack_damage(0)
 {
@@ -62,9 +62,9 @@ void ClapTrap::attack(const std::string &target)
         std::cout << "ClapTrap " << _name << " has no energy and can't attack" << std::endl;
         return ;
     }
-    _energy_points--;
     std::cout << "ClapTrap " << _name << " attacks " << target << ", causing " << _attack_damage << " points of damage!" << std::endl;
     std::cout << "ClapTrap " << _name << " has " << _hit_points << " hit points and " << _energy_points << " energy points" << std::endl;
+    _energy_points--;
     return;
 }
 

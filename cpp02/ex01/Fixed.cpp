@@ -6,7 +6,7 @@
 /*   By: ivanvernihora <ivanvernihora@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 17:48:32 by ivanverniho       #+#    #+#             */
-/*   Updated: 2025/07/02 11:49:09 by ivanverniho      ###   ########.fr       */
+/*   Updated: 2025/07/02 15:18:14 by ivanverniho      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int	Fixed::toInt(void) const
 	return _value >> _fractbits;
 }
 
-std::ostream&	operator<<(std::ostream &os, const Fixed &fix)
+std::ostream &operator<<(std::ostream &os, const Fixed &fix)
 {
 	os << fix.toFloat();
 	return os;

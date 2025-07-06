@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ivanvernihora <ivanvernihora@student.42    +#+  +:+       +#+        */
+/*   By: iverniho <iverniho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 12:08:37 by ivanverniho       #+#    #+#             */
-/*   Updated: 2025/07/02 15:18:49 by ivanverniho      ###   ########.fr       */
+/*   Updated: 2025/07/05 13:26:17 by iverniho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,6 +154,11 @@ Fixed Fixed::operator--(int i)
 }
 
 Fixed &Fixed::min(Fixed &a, Fixed &b)
+{
+    return a < b ? a : b;
+}
+
+const Fixed &Fixed::min(const Fixed  &a,const Fixed &b)
 {
     return a < b ? a : b;
 }

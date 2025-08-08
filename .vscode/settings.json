@@ -49,6 +49,7 @@
     "algorithm": "cpp",
     "iomanip": "cpp",
     "fstream": "cpp",
-    "iterator": "cpp"
+    "iterator": "cpp",
+    "exception": "cpp"
   }
 }

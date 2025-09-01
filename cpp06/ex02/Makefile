@@ -1,7 +1,7 @@
 COMPILER = c++
-SRCS = main.cpp Serializer.cpp Data.cpp
+SRCS = main.cpp A.cpp B.cpp C.cpp Base.cpp
 OBJS = $(SRCS:.cpp=.o)
-NAME = serializer
+NAME = identify
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)

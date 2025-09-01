@@ -26,7 +26,6 @@ clean:
 
 fclean: clean
 	rm -f $(NAME) $(TEST_NAME)
-	rm -f *.txt
 
 re: fclean all
 

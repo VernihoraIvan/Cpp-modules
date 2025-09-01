@@ -6,13 +6,14 @@
 /*   By: ivanvernihora <ivanvernihora@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/19 11:53:20 by ivanverniho       #+#    #+#             */
-/*   Updated: 2025/08/28 14:57:35 by ivanverniho      ###   ########.fr       */
+/*   Updated: 2025/09/01 10:58:37 by ivanverniho      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 #include <iomanip>
 #include <sstream>
+#include <climits>
 
 ScalarConverter::ScalarConverter(void)
 {
@@ -203,7 +204,7 @@ bool isInt(const std::string &src)
 
 bool isChar(const std::string &src)
 {
-    return (src.length() == 1 && !isdigit(src[0]) && std::isprint(src[0]));
+    return (src.length() == 1 && std::isprint(src[0]));
 }
 
 bool isFloat(const std::string &src)

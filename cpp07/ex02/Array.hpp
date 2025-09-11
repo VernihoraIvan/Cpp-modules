@@ -20,4 +20,6 @@ template <typename T> class Array {
         unsigned int _size;
 };
 
+#include "Array.tpp"
+
 #endif

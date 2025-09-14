@@ -17,6 +17,7 @@ public:
     void addNumber(int nbr);
     int shortestSpan(void);
     int longestSpan(void);
+    void addMultipleNumbers(std::vector<int> nbrs);
 
 private:
     unsigned int _N;

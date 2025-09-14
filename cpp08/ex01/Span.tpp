@@ -8,7 +8,6 @@ Span<T>::Span(void) : _N(0)
 template <typename T>
 Span<T>::Span(unsigned int N) : _N(N)
 {
-    // _vec = new int[_N];
     _vec.reserve(_N);
 }
 
@@ -22,7 +21,6 @@ template <typename T>
 Span<T>::~Span(void)
 {
     if (_vec.capacity())
-        // delete[] _vec;
         _vec.clear();
 }
 
@@ -32,7 +30,6 @@ Span<T> &Span<T>::operator=(const Span &copy)
     if (this != copy)
     {
         _N = copy._N;
-        // delete[] _vec;
         _vec.clear();
         _vec.reserve(_N);
         for (unsigned int i = 0; i < _N; i++)
@@ -44,13 +41,18 @@ Span<T> &Span<T>::operator=(const Span &copy)
 template <typename T>
 void Span<T>::addNumber(int nbr)
 {
-    std::cout << "capacity: " << _vec.capacity() << std::endl;
-    std::cout << "_N: " << _N << std::endl;
     if (_vec.size() == _vec.capacity())
         throw std::out_of_range("Span is full");
     if (_N == 0)
         throw std::out_of_range("Span is empty");
     _vec.push_back(nbr);
+}
+
+template <typename T>
+void Span<T>::addMultipleNumbers(std::vector<int> nbrs)
+{
+    for (size_t i = 0; i < nbrs.size(); i++)
+        addNumber(nbrs[i]);
 }
 
 template <typename T>
@@ -78,6 +80,5 @@ int Span<T>::shortestSpan(void)
             shortestSpan = shortestSpan > currentShortestSpan ? currentShortestSpan : shortestSpan;
         }
     }
-    std::cout << "shortestSppan: " << shortestSpan << std::endl;
     return shortestSpan;
 }
